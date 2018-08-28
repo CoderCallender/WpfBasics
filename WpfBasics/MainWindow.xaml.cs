@@ -23,5 +23,21 @@ namespace WpfBasics
         {
             InitializeComponent();
         }
+
+        private void ApplyButon_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WeldCheckbox.IsChecked = this.AssemblyCheckbox.IsChecked = this.PlasmaCheckbox.IsChecked = this.LaserCheckbox.IsChecked = this.PurchaseCheckbox.IsChecked = this.LatheCheckbox.IsChecked =
+                this.DrillCheckbox.IsChecked = this.FoldCheckbox.IsChecked = this.RollCheckbox.IsChecked = this.SawCheckbox.IsChecked = false;
+        }
+
+        private void Checkbox_Checked(object sender, RoutedEventArgs e)
+        {
+            this.LenghtText.Text += ((CheckBox)sender).Content;
+        }
     }
 }
