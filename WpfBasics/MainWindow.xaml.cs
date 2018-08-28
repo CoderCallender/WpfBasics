@@ -26,7 +26,7 @@ namespace WpfBasics
 
         private void ApplyButon_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show($"The description is: {this.DescriptionText.Text}");
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +38,24 @@ namespace WpfBasics
         private void Checkbox_Checked(object sender, RoutedEventArgs e)
         {
             this.LenghtText.Text += ((CheckBox)sender).Content;
+        }
+
+        private void FinishDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.NoteText == null)
+                return;
+
+            this.NoteText.Text = (string)((ComboBoxItem)((ComboBox)sender).SelectedValue).Content;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FinishDropdown_SelectionChanged(this.FinishDropdown, null);
+        }
+
+        private void SupplierNameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.MassText.Text = this.SupplierNameText.Text;
         }
     }
 }
